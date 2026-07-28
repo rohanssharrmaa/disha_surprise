@@ -1,215 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>A Little World For Disha ❤️</title>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;700&display=swap');
+<link rel="stylesheet" href="style.css">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    height:100vh;
-    overflow:hidden;
-    font-family:'Quicksand',sans-serif;
-    background:linear-gradient(#fde8f1,#fff8f4);
-    color:#5d4b55;
-}
-
-.scene{
-    height:100vh;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
-    padding:25px;
-    position:absolute;
-    transition:opacity 1.5s ease, transform 1.5s ease;
-}
-
-.hidden{
-    opacity:0;
-    pointer-events:none;
-    transform:scale(1.1);
-}
-
-h1{
-    font-family:'Pacifico',cursive;
-    color:#e8799d;
-    font-size:42px;
-}
-
-p{
-    font-size:20px;
-    line-height:1.7;
-    margin-top:20px;
-}
-
-button{
-    margin-top:35px;
-    border:none;
-    background:#ed8fab;
-    color:white;
-    padding:16px 35px;
-    border-radius:50px;
-    font-size:18px;
-    box-shadow:0 10px 25px #efb6c9;
-    animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-    50%{
-        transform:scale(1.08);
-    }
-}
-
-
-/* petals */
-
-.petal{
-    position:absolute;
-    font-size:25px;
-    animation:fall linear infinite;
-    opacity:.7;
-}
-
-@keyframes fall{
-    from{
-        transform:translateY(-10vh) rotate(0deg);
-    }
-    to{
-        transform:translateY(110vh) rotate(360deg);
-    }
-}
-
-
-/* heart */
-
-.heart{
-    font-size:120px;
-    animation:heartbeat 1.5s infinite;
-}
-
-@keyframes heartbeat{
-    50%{
-        transform:scale(1.15);
-    }
-}
-
-
-/* characters */
-
-.characters{
-    font-size:70px;
-    margin-bottom:20px;
-}
-
-
-/* moon */
-
-.moon{
-    font-size:100px;
-    animation:float 3s infinite;
-}
-
-@keyframes float{
-    50%{
-        transform:translateY(-15px);
-    }
-}
-
-
-/* stars */
-
-.star{
-    position:absolute;
-    color:white;
-    animation:twinkle 2s infinite;
-}
-
-@keyframes twinkle{
-    50%{
-        opacity:.3;
-    }
-}
-
-</style>
 </head>
 
 
 <body>
 
 
-<!-- floating petals -->
-
-<div class="petal" style="left:10%;animation-duration:8s">🌸</div>
-<div class="petal" style="left:30%;animation-duration:10s">🌸</div>
-<div class="petal" style="left:55%;animation-duration:7s">🌸</div>
-<div class="petal" style="left:80%;animation-duration:9s">🌸</div>
+<div class="petals"></div>
 
 
-<!-- Scene 1 -->
+<!-- Rohan's world -->
 
-<div class="scene" id="one">
+<section id="rohanScene" class="scene">
 
-<h1>Dear Disha 🌸</h1>
+<div class="character">
+🌸
+</div>
+
+<h1>
+Dear Disha...
+</h1>
 
 <p>
-I wanted to create<br>
-a tiny little world...
+Somewhere between dreams<br>
+and reality...
 <br><br>
-just for you.
+
+Rohan created<br>
+a tiny little world.
 </p>
 
 
-<button onclick="next()">
+<button onclick="openHeart()">
 ✨ Open My Heart ✨
 </button>
 
-</div>
+</section>
 
 
 
-<!-- Scene 2 -->
+<!-- Heart scene -->
 
-<div class="scene hidden" id="two">
+<section id="heartScene" class="scene hidden">
 
 <div class="heart">
 ❤️
 </div>
 
+
 <h1>
-Welcome Disha
+A little piece of my heart
 </h1>
 
+
 <p>
-You just entered<br>
-a little piece of Rohan's heart.
+Every beautiful story<br>
+starts with a first page.
 </p>
 
 
-<button onclick="moon()">
+<button onclick="showDisha()">
 🌙 Continue
 </button>
 
+
+</section>
+
+
+
+
+<!-- Disha's world -->
+
+<section id="dishaScene" class="scene hidden">
+
+<div class="character">
+🌷
 </div>
 
 
+<h1>
+Somewhere else...
+</h1>
 
-<!-- Scene 3 -->
 
-<div class="scene hidden" id="three">
+<p>
+There was Disha...
+<br><br>
 
-<div class="characters">
-👦🏻 🌸 👧🏻
-</div>
+living her own beautiful story,
+waiting for new chapters.
+</p>
+
+
+<button onclick="moonScene()">
+✨ Look at the moon
+</button>
+
+
+</section>
+
+
+
+
+<!-- Moon scene -->
+
+<section id="moonScene" class="scene hidden night">
 
 
 <div class="moon">
@@ -218,29 +122,37 @@ a little piece of Rohan's heart.
 
 
 <h1>
-A New Chapter
+Two stories.
+<br>
+One moon.
 </h1>
 
 
 <p>
 Maybe our story hasn't started yet...
 <br><br>
-Maybe the best pages<br>
-are still waiting for us.
+
+But maybe...
+<br>
+
+the best chapters are still waiting.
 </p>
 
 
-<button onclick="finalScene()">
-💖 One More Thing
+<button onclick="ending()">
+💖 One last thing
 </button>
 
-</div>
+
+</section>
 
 
 
-<!-- Final -->
 
-<div class="scene hidden" id="four">
+
+<!-- Ending -->
+
+<section id="ending" class="scene hidden">
 
 
 <h1>
@@ -249,81 +161,32 @@ Rohan ❤️ Disha
 
 
 <p>
+
 Dear Disha,
 <br><br>
 
 Maybe this is only the first page...
 <br><br>
 
-but I hope one day we look back
-and remember where it began.
+But I hope one day we look back
+and smile at where it began.
 <br><br>
 
 Until then,
-keep smiling. 🌸
+keep shining. 🌸
 <br><br>
 
 — Rohan ❤️
+
 </p>
 
 
-</div>
+</section>
 
 
 
-
-<script>
-
-
-function next(){
-
-one.classList.add("hidden");
-two.classList.remove("hidden");
-
-}
-
-
-function moon(){
-
-two.classList.add("hidden");
-three.classList.remove("hidden");
-
-createStars();
-
-}
-
-
-function finalScene(){
-
-three.classList.add("hidden");
-four.classList.remove("hidden");
-
-}
-
-
-
-function createStars(){
-
-for(let i=0;i<30;i++){
-
-let star=document.createElement("div");
-
-star.className="star";
-
-star.innerHTML="✨";
-
-star.style.left=Math.random()*100+"%";
-star.style.top=Math.random()*100+"%";
-
-document.body.appendChild(star);
-
-}
-
-}
-
-
-</script>
-
+<script src="script.js"></script>
 
 </body>
+
 </html>
